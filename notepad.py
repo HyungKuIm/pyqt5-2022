@@ -2,7 +2,7 @@
 # Import necessary modules
 import sys
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, 
-		QTextEdit, QMessageBox, QFileDialog)
+		QTextEdit, QMessageBox, QFileDialog, QHBoxLayout, QVBoxLayout)
 
 class Notepad(QWidget):
 	def __init__(self):
@@ -24,17 +24,34 @@ class Notepad(QWidget):
 		"""
 		# 편집 메뉴의 푸쉬 버튼
 		new_button = QPushButton("New", self)
-		new_button.move(10, 20)
+		# new_button.move(10, 20)
 		new_button.clicked.connect(self.clearText)
 
 		save_button = QPushButton("Save", self)
-		save_button.move(80, 20)
+		# save_button.move(80, 20)
 		save_button.clicked.connect(self.saveText)
+
+		top_h_box = QHBoxLayout()
+		top_h_box.addWidget(new_button)
+		top_h_box.setSpacing(20)
+		top_h_box.addWidget(save_button)
+
 
 		# 텍스트 에디트 필드 생성
 		self.text_field = QTextEdit(self)
-		self.text_field.resize(280, 330)
-		self.text_field.move(10, 60)
+		# self.text_field.resize(280, 330)
+		# self.text_field.move(10, 60)
+
+		main_h_box = QHBoxLayout()
+		# main_h_box.addStretch()
+		main_h_box.addWidget(self.text_field)
+		# main_h_box.addStretch()
+
+		v_box = QVBoxLayout()
+		v_box.addLayout(top_h_box)
+		v_box.addLayout(main_h_box)
+
+		self.setLayout(v_box)
 
 	def clearText(self):
 		"""
