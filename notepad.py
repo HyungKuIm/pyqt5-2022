@@ -23,11 +23,11 @@ class Notepad(QWidget):
 		메모장을 위한 위젯 생성 및 정렬
 		"""
 		# 편집 메뉴의 푸쉬 버튼
-		new_button = QPushButton("New", self)
+		new_button = QPushButton("New")
 		# new_button.move(10, 20)
 		new_button.clicked.connect(self.clearText)
 
-		save_button = QPushButton("Save", self)
+		save_button = QPushButton("Save")
 		# save_button.move(80, 20)
 		save_button.clicked.connect(self.saveText)
 
@@ -38,7 +38,7 @@ class Notepad(QWidget):
 
 
 		# 텍스트 에디트 필드 생성
-		self.text_field = QTextEdit(self)
+		self.text_field = QTextEdit()
 		# self.text_field.resize(280, 330)
 		# self.text_field.move(10, 60)
 

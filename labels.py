@@ -23,8 +23,8 @@ class HelloWorldWindow(QWidget):
 		텍스트, 이미지 표시(QLabel활용)
 		이미지가 없으면 예외처리함
 		"""
-		text = QLabel(self)
-		text.setText("안녕하세요")
+		text = QLabel("안녕하세요", self)
+		# text.setText("안녕하세요")
 		text.move(105, 15)
 
 		images = "images/world.png"
