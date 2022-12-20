@@ -193,16 +193,23 @@ class Notepad(QMainWindow):
 			# 	self.text_field.setExtraSelections(extra_selections)
 
 	def chooseFont(self):
-		pass
+		current = self.text_field.currentFont()
+		font, ok = QFontDialog.getFont(current, self, options=QFontDialog.DontUseNativeDialog)
+		if ok:
+			self.text_field.setCurrentFont(font)
 
 	def chooseFontColor(self):
-		pass
+		color = QColorDialog.getColor()
+		if color.isValid():
+			self.text_field.setTextColor(color)
 
 	def chooseFontBackgroundColor(self):
-		pass
+		color = QColorDialog.getColor()
+		if color.isValid():
+			self.text_field.setTextBackgroundColor(color)
 
 	def aboutDialog(self):
-		pass
+		QMessageBox.about(self, "About Notepad", "Beginner's Practical Guide to PyQt\n\nHyungKu Im")
 
 
 
