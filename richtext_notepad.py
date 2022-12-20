@@ -187,8 +187,10 @@ class Notepad(QMainWindow):
 				extra_selections.append(selection)
 
 			# Highlight selections in text edit widget
-			for i in extra_selections:
-				self.text_field.setExtraSelections(extra_selections)
+			self.text_field.setExtraSelections(extra_selections)
+			# for i in extra_selections:
+			# 	print(str(i))
+			# 	self.text_field.setExtraSelections(extra_selections)
 
 	def chooseFont(self):
 		pass
